@@ -30,7 +30,7 @@ if opcion == "Página inicial":
     #Instrucciones algoritmo relgas de asociación
     if instrucciones == "Algoritmo Reglas de Asociación":
         st.subheader("Instrucciones del Algoritmo Reglas de Asociación: ")
-        st.write("1. 1. Deberás seleccionar tu archivo con terminación 'csv' el cual debe tener valores de cadenas. En caso de que hayas subido alguno en otro algoritmo, puede que se haya conservado.")
+        st.write("1. Deberás seleccionar tu archivo con terminación 'csv' el cual debe tener valores de cadenas. En caso de que hayas subido alguno en otro algoritmo, puede que se haya conservado.")
         st.write("2. Deberás de indicar si la primer fila de tu archivo es parte de los datos o no." + 
         " De ser así, se mostrarán los datos del archivo con la primer fila como parte de ellos.")
         st.write("3. Posteriormente, se mostrarán lista de las frecuencias generada y su gráfica.   ")
