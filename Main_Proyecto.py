@@ -1,5 +1,4 @@
 #Importando las bibliotecas que vamos a utilizar
-from re import S
 import streamlit as st
 import Reglas_Asociacion as RA 
 import Metricas_Distancia as MD

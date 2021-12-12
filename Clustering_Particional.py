@@ -96,17 +96,17 @@ def run (file):
 
             #Mostrando los centroides
             CentroidesP = archivo.groupby('clusterP').mean()
-            st.write("A continuación, se muestran los centroides con la media de sus valores para cada variable.")
+            st.write("A continuación, se muestran los clústeres con la media de sus valores para cada variable.")
             st.write(CentroidesP)
 
             #Mostrando la distribución de los datos de cada centroide
-            st.write("Cada centroide se conforma por:")
+            st.write("Cada clúster se conforma por:")
             st.write(archivo.groupby(['clusterP'])['clusterP'].count())
-            st.write("A continuación, se muestran todos los datos del archivo con su cluster respectivo.")
+            st.write("A continuación, se muestran todos los datos del archivo con su clúster respectivo.")
             st.write(archivo)
 
             #Mostrando un cluster en específico si el usuario lo desea
-            st.write("Si deseas ver un cluster en específico, ingresa un número. Por default se muestra el cluster 0.")
+            st.write("Si deseas ver un clúster en específico, ingresa un número. Por default se muestra el cluster 0.")
             cluster = st.number_input ("Ingresa el cluster", max_value = int(kl.elbow-1), min_value= int(0))
             st.write(archivo[archivo.clusterP == cluster])
     else:

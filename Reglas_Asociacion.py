@@ -24,8 +24,8 @@ def run(file):
     Transacciones = archivo.values.reshape(-1).tolist()
     Lista = pd.DataFrame(Transacciones)
     Lista['Frecuencia'] = 1
-    Lista = Lista.groupby(by=[0], as_index=False).count().sort_values(by=['Frecuencia'], ascending=True) #Conteo
-    Lista['Porcentaje'] = (Lista['Frecuencia'] / Lista['Frecuencia'].sum()) #Porcentaje
+    Lista = Lista.groupby(by=[0], as_index=False).count().sort_values(by=['Frecuencia'], ascending=True)
+    Lista['Porcentaje'] = (Lista['Frecuencia'] / Lista['Frecuencia'].sum()) 
     Lista = Lista.rename(columns={0 : 'Item'})
 
     #Mostrando los datos en orden por frecuencia:

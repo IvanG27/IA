@@ -1,6 +1,5 @@
 #Módulo clasificación (regresión logística)
 #Importando las bibliotecas necesarias
-from contextlib import ContextDecorator
 import pandas as pd               
 import numpy as np                
 import matplotlib.pyplot as plt   

@@ -62,14 +62,7 @@ def run (file):
             #Aplicando el Algoritmo 
             estandarizar = StandardScaler()              
             MEstandarizada = estandarizar.fit_transform(MatrizArchivo)
-            DEstandarizados = pd.DataFrame(MEstandarizada) 
-
-            #Mostrabdo los clústeres formados
-            st.write("Los clústeres obtenidos son:")
-            plt.figure(figsize=(10, 7))
-            plt.title("Casos de hipoteca")
-            plt.xlabel('Hipoteca')
-            plt.ylabel('Distancia')
+            DEstandarizados = pd.DataFrame(MEstandarizada)
 
             #Dando al usuario la opción de elegir la métrica de distancia
             metrica = st.selectbox ("Selecciona el tipo de métrica con el que deseas trabajar", (
@@ -105,15 +98,15 @@ def run (file):
                 archivo['clusterH'] = MJerarquico.labels_
                 archivo.groupby(['clusterH'])['clusterH'].count() 
                 CentroidesH = archivo.groupby('clusterH').mean()
-                st.write("Los centroides con valores medios formados se muestran a continuación:")
+                st.write("Los clústeres con valores medios formados se muestran a continuación:")
                 st.write(CentroidesH)
 
                 #Mostrando los elementos de cada clúster
-                st.write("Cada centroide se conforma por la siguiente cantidad de datos:")
+                st.write("Cada clúster se conforma por la siguiente cantidad de datos:")
                 st.write(archivo.groupby(['clusterH'])['clusterH'].count())
 
                 #Mostrar un cluster si el usuario lo quiere
-                st.write("Si deseas ver un cluster en específico, ingresa un número. Por default se muestra el cluster 0.")
+                st.write("Si deseas ver un clúster en específico, ingresa un número. Por default se muestra el cluster 0.")
                 cluster = st.number_input ("Ingresa el cluster", max_value = int(num_cluster-1), min_value= int(0))
                 st.write(archivo[archivo.clusterH == cluster])
            
