@@ -25,7 +25,7 @@ if opcion == "Página inicial":
     st.write ("Es muy importante que sigas las instrucciones de cada algoritmo, de no ser así se generarán errores.")
     instrucciones = st.selectbox("Elige el algoritmo del que deseas saber instrucciones", ("Algoritmo Reglas de Asociación", "Algoritmo Métricas de Distancia",
     "Algoritmo Clustering Jerárquico", "Algoritmo Clustering Particional", "Algoritmo Clasificación (Regresión Logística)",
-    "Algoritmo Árbol de Decisión (Pronóstico)", "Algotimo Árbol de Decisión (Clasificación)"))
+    "Algoritmo Árbol de Decisión (Pronóstico)", "Algoritmo Árbol de Decisión (Clasificación)"))
 
     #Instrucciones algoritmo relgas de asociación
     if instrucciones == "Algoritmo Reglas de Asociación":
