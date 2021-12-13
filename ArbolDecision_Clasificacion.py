@@ -28,25 +28,25 @@ def run (file):
 
     #Seleccionando las variables predictoras
     st.write ("Elige las variables predictoras.")
-    variables_predictoras = st.multiselect("Selecciona las variables predictoras", column_names)
+    variable_predecirADC = st.multiselect("Selecciona las variables predictoras", column_names)
     agree = st.checkbox("Listo")
 
     #Procedemos a obtener la variable a pronosticar
     if agree:
             variables_restantes = column_names.tolist()
-            for i in variables_predictoras:
+            for i in variable_predecirADC:
                 for n in variables_restantes:
                     if i == n:
                         variables_restantes.remove(n)
                         break
             #Eligiendo la variable a predecir      
             st.write("Elige la variable a predecir.")
-            variable_predecir = st.selectbox("Selecciona la variable a predecir. Recuerda que es una variable que no varíen mucho sus valores.", variables_restantes)
+            variable_predecir3 = st.selectbox("Selecciona la variable a predecir. Recuerda que es una variable que no varíen mucho sus valores.", variables_restantes)
             listo = st.checkbox("Continuar")
 
             if listo:
-                X = np.array(archivo[variables_predictoras])
-                Y = np.array(archivo[variable_predecir])
+                X = np.array(archivo[variable_predecirADC])
+                Y = np.array(archivo[variable_predecir3])
                 X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(X, Y, 
                                                                                 test_size = 0.2, 
                                                                                 random_state = 0,
@@ -73,7 +73,7 @@ def run (file):
 
                 #Mostrando la importancia de las Variables
                 i = 0
-                lista_variables = list(variables_predictoras)
+                lista_variables = list(variable_predecirADC)
                 Prediccion = pd.DataFrame({'Variables' : lista_variables, 'Importancia' : ClasificacionArbol.feature_importances_})
                 st.write("La importancia de las variables para la predicción se detalla a continuación:")
                 st.write(Prediccion)
@@ -87,7 +87,7 @@ def run (file):
                 if tipo == "Imagen":
                     st.write("Imprimiendo la imagen del árbol.")    
                     plt.figure(figsize=(16,16))  
-                    plot_tree(ClasificacionArbol, feature_names = variables_predictoras)
+                    plot_tree(ClasificacionArbol, feature_names = variable_predecirADC)
                     st.pyplot(plt)
 
                 elif tipo == "Texto":
@@ -102,8 +102,8 @@ def run (file):
                     var = []
 
                     #Hacemos que streamlit pida cada una de las variables predictoras seleccionadas
-                    while i<len(variables_predictoras):
-                        param = st.number_input(variables_predictoras[i])
+                    while i<len(variable_predecirADC):
+                        param = st.number_input(variable_predecirADC[i])
                         var.insert(i, param)
                         i = i + 1
                     parametros = st.form_submit_button("Calcular")
@@ -112,8 +112,8 @@ def run (file):
                         
                         #Creamos el dataframe para la predicción
                         Prediccion = pd.DataFrame({'prueba' : [0]})
-                        while i < len(variables_predictoras):
-                            Prediccion.insert(i, str(variables_predictoras[i]), var[i])
+                        while i < len(variable_predecirADC):
+                            Prediccion.insert(i, str(variable_predecirADC[i]), var[i])
                             i = i + 1
                         del(Prediccion['prueba'])                        
                         #Imprimimos la predicción

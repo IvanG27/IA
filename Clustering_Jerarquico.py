@@ -17,14 +17,14 @@ def run (file):
     st.write(archivo)
 
     #Obteniendo la variable a analizar
-    variable = st.text_input ("Ingresa el nombre de la variable a comparar. Recuerda que es preferible"+
+    variable1 = st.text_input ("Ingresa el nombre de la variable a comparar. Recuerda que es preferible"+
     " que sus valores sean repetitivos")
     total_columns = len(archivo.axes[1])
     column_names = archivo.columns.values
 
     #Comprobando si la variable dada existe
     for i in column_names:
-        if i == variable:
+        if i == variable1:
             existe = True
             break
         else:
@@ -37,7 +37,7 @@ def run (file):
         st.write("La gráfica comparativa con respecto a las demás variables es:")
         agree = st.checkbox("Ver gráfica")
         if agree:
-            sns.pairplot(archivo, hue=variable) 
+            sns.pairplot(archivo, hue=variable1) 
             st.pyplot (plt)
 
         #Matriz de correlaciones
@@ -50,12 +50,12 @@ def run (file):
         st.pyplot(plt)
 
         #Selección de variables
-        variables = st.multiselect("Selecciona las variables a analizar", column_names)
+        variables1 = st.multiselect("Selecciona las variables a analizar", column_names)
         agree = st.checkbox("Listo")
         
         if agree:
             st.write ("Los valores de las variables seleccionadas son:")
-            MatrizArchivo = np.array(archivo[variables])
+            MatrizArchivo = np.array(archivo[variables1])
             MArchivo = pd.DataFrame(MatrizArchivo)
             st.write(MArchivo)
 
@@ -88,7 +88,7 @@ def run (file):
 
                 #Obteniendo las columnas que no fueron elegidas por el usuario
                 for i in column_names:
-                    for w in variables:
+                    for w in variables1:
                         if i == w:
                             columnas_innecesarias.remove(i)
                             break

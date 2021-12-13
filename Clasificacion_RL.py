@@ -19,12 +19,12 @@ def run(file):
     column_names = archivo.columns.values
 
     #Obteniendo la variable a analizar
-    variable = st.text_input ("Ingresa el nombre de la variable a comparar. Recuerda que es preferible"+
+    variable3 = st.text_input ("Ingresa el nombre de la variable a comparar. Recuerda que es preferible"+
     " que sus valores sean repetitivos")
     
     #Comprobando si la variable dada existe
     for i in column_names:
-        if i == variable:
+        if i == variable3:
             existe = True
             break
         else:
@@ -37,7 +37,7 @@ def run(file):
         st.write("La gráfica comparativa con respecto a las demás variables es:")
         agree = st.checkbox("Ver gráfica")
         if agree:
-            sns.pairplot(archivo, hue=variable) 
+            sns.pairplot(archivo, hue=variable3) 
             st.pyplot (plt)
 
         #Matriz de correlaciones
@@ -51,23 +51,23 @@ def run(file):
 
         #Selección de las variables predictoras
         st.write ("Elige las variables predictoras. Normalmente son variables cuyos valores son dispersos entre sí.")
-        variables_predictoras = st.multiselect("Selecciona las variables predictoras", column_names)
+        variable_predecirRL = st.multiselect("Selecciona las variables predictoras", column_names)
         agree = st.checkbox("Listo")
 
         if agree:
             variables_restantes = column_names.tolist()
-            for i in variables_predictoras:
+            for i in variable_predecirRL:
                 for n in variables_restantes:
                     if i == n:
                         variables_restantes.remove(n)
                         break
             #Eligiendo la variable a predecir      
             st.write("Elige la variable a predecir. Normalmente es una variable cuyos valores son muy repetitivos.")
-            variable_predecir = st.selectbox("Selecciona la variable a predecir", variables_restantes)
+            variable_predecir1 = st.selectbox("Selecciona la variable a predecir", variables_restantes)
             listo = st.checkbox("Continuar")
             if listo:
-                X = np.array(archivo[variables_predictoras])
-                Y = np.array(archivo[variable_predecir])
+                X = np.array(archivo[variable_predecirRL])
+                Y = np.array(archivo[variable_predecir1])
                 X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(X, Y, 
                                                                                 test_size = 0.2, 
                                                                                 random_state = 1234,
@@ -101,7 +101,7 @@ def run(file):
                 ecuacion = str(intercepto)
                 i = 0
                 while i < coeficientes.size:
-                    ecuacion = ecuacion + str(coeficientes[0][i]) + " (" + str(variables_predictoras[i]+")")
+                    ecuacion = ecuacion + str(coeficientes[0][i]) + " (" + str(variable_predecirRL[i]+")")
                     i = i + 1
                 st.write("La ecuación del modelo es:")
                 st.write(ecuacion)
@@ -113,8 +113,8 @@ def run(file):
                     var = []
 
                     #Hacemos que streamlit pida cada una de las variables predictoras seleccionadas
-                    while i<len(variables_predictoras):
-                        param = st.number_input(variables_predictoras[i])
+                    while i<len(variable_predecirRL):
+                        param = st.number_input(variable_predecirRL[i])
                         var.insert(i, param)
                         i = i + 1
                     parametros = st.form_submit_button("Calcular")
@@ -123,8 +123,8 @@ def run(file):
                         
                         #Creamos el dataframe para la predicción
                         Prediccion = pd.DataFrame({'prueba' : [0]})
-                        while i < len(variables_predictoras):
-                            Prediccion.insert(i, str(variables_predictoras[i]), var[i])
+                        while i < len(variable_predecirRL):
+                            Prediccion.insert(i, str(variable_predecirRL[i]), var[i])
                             i = i + 1
                         del(Prediccion['prueba'])                        
                         #Imprimimos la predicción

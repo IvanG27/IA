@@ -169,7 +169,6 @@ elif opcion == "Algoritmo Árbol de Decisión (Pronóstico)":
 
 #Opción para el algoritmo árbol de decisión (clasificación)
 elif opcion == "Algoritmo Árbol de Decisión (Clasificación)":
-    caching.clear_cache 
     st.header ("Árbol de Decisión (Clasificación)")
     uploaded_fileADC = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
     if uploaded_fileADC is not None:
