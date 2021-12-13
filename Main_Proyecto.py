@@ -7,6 +7,7 @@ import Clustering_Particional as CP
 import Clasificacion_RL as RL
 import ArbolDecision_Pronostico as ADP
 import ArbolDecision_Clasificacion as ADC
+from streamlit import caching
 
 #Datos de la página principal
 st.sidebar.header("Menú principal")
@@ -168,6 +169,7 @@ elif opcion == "Algoritmo Árbol de Decisión (Pronóstico)":
 
 #Opción para el algoritmo árbol de decisión (clasificación)
 elif opcion == "Algoritmo Árbol de Decisión (Clasificación)":
+    caching.clear_cache 
     st.header ("Árbol de Decisión (Clasificación)")
     uploaded_fileADC = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
     if uploaded_fileADC is not None:
