@@ -126,6 +126,7 @@ if opcion == "Página inicial":
 
 #Opción para el algoritmo apriori
 elif opcion == "Algoritmo Reglas de Asociación":  
+    uploaded_file = None
     st.header ("Algoritmo Reglas de Asociación")
     uploaded_file = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores de cadenas.")
     if uploaded_file is not None: ##Si no es nulo el archivo podemos continuar
@@ -133,6 +134,7 @@ elif opcion == "Algoritmo Reglas de Asociación":
 
 #Opción para el algoritmo métricas de distancia
 elif opcion == "Algoritmo Métricas de distancia":
+    uploaded_file = None
     st.header ("Métricas de Distancia")
     uploaded_file = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
     if uploaded_file is not None:
@@ -140,6 +142,7 @@ elif opcion == "Algoritmo Métricas de distancia":
 
 #Opción para el algoritmo Clustering Jerárquico
 elif opcion == "Algoritmo Clustering Jerárquico":
+    uploaded_file = None
     st.header ("Clustering Jerárquico")
     uploaded_file = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos")
     if uploaded_file is not None:
@@ -147,6 +150,7 @@ elif opcion == "Algoritmo Clustering Jerárquico":
 
 #Opción para el algoritmo de clustering particional
 elif opcion == "Algoritmo Clustering Particional":
+    uploaded_file = None
     st.header ("Clustering Particional")
     uploaded_file = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
     if uploaded_file is not None:
@@ -154,6 +158,7 @@ elif opcion == "Algoritmo Clustering Particional":
 
 #Opción para el algoritmo Regresión Lógistica
 elif opcion == "Algoritmo Clasificación (Regresión Logística)":
+    uploaded_file = None
     st.header ("Regresión Logística")
     uploaded_file = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
     if uploaded_file is not None:
@@ -161,6 +166,7 @@ elif opcion == "Algoritmo Clasificación (Regresión Logística)":
 
 #Opción para el algoritmo árbol de decisión (pronóstico)
 elif opcion == "Algoritmo Árbol de Decisión (Pronóstico)":
+    uploaded_file = None
     st.header ("Árbol de Decisión (Pronóstico)")
     uploaded_file = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
     if uploaded_file is not None:
@@ -168,6 +174,7 @@ elif opcion == "Algoritmo Árbol de Decisión (Pronóstico)":
 
 #Opción para el algoritmo árbol de decisión (clasificación)
 elif opcion == "Algoritmo Árbol de Decisión (Clasificación)":
+    uploaded_file = None
     st.header ("Árbol de Decisión (Clasificación)")
     uploaded_file = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
     if uploaded_file is not None:
