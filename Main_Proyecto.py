@@ -126,56 +126,49 @@ if opcion == "Página inicial":
 
 #Opción para el algoritmo apriori
 elif opcion == "Algoritmo Reglas de Asociación":  
-    uploaded_file = None
     st.header ("Algoritmo Reglas de Asociación")
-    uploaded_file = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores de cadenas.")
-    if uploaded_file is not None: ##Si no es nulo el archivo podemos continuar
-        RA.run(uploaded_file)
+    uploaded_fileRA = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores de cadenas.")
+    if uploaded_fileRA is not None: ##Si no es nulo el archivo podemos continuar
+        RA.run(uploaded_fileRA)
 
 #Opción para el algoritmo métricas de distancia
 elif opcion == "Algoritmo Métricas de distancia":
-    uploaded_file = None
     st.header ("Métricas de Distancia")
-    uploaded_file = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
-    if uploaded_file is not None:
-        MD.run(uploaded_file)
+    uploaded_fileMD = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
+    if uploaded_fileMD is not None:
+        MD.run(uploaded_fileMD)
 
 #Opción para el algoritmo Clustering Jerárquico
 elif opcion == "Algoritmo Clustering Jerárquico":
-    uploaded_file = None
     st.header ("Clustering Jerárquico")
-    uploaded_file = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos")
-    if uploaded_file is not None:
-        CJ.run(uploaded_file)
+    uploaded_fileCJ = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos")
+    if uploaded_fileCJ is not None:
+        CJ.run(uploaded_fileCJ)
 
 #Opción para el algoritmo de clustering particional
 elif opcion == "Algoritmo Clustering Particional":
-    uploaded_file = None
     st.header ("Clustering Particional")
-    uploaded_file = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
-    if uploaded_file is not None:
-        CP.run(uploaded_file)
+    uploaded_fileCP = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
+    if uploaded_fileCP is not None:
+        CP.run(uploaded_fileCP)
 
 #Opción para el algoritmo Regresión Lógistica
 elif opcion == "Algoritmo Clasificación (Regresión Logística)":
-    uploaded_file = None
     st.header ("Regresión Logística")
-    uploaded_file = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
-    if uploaded_file is not None:
-        RL.run(uploaded_file)
+    uploaded_fileRL = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
+    if uploaded_fileRL is not None:
+        RL.run(uploaded_fileRL)
 
 #Opción para el algoritmo árbol de decisión (pronóstico)
 elif opcion == "Algoritmo Árbol de Decisión (Pronóstico)":
-    uploaded_file = None
     st.header ("Árbol de Decisión (Pronóstico)")
-    uploaded_file = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
-    if uploaded_file is not None:
-        ADP.run(uploaded_file)
+    uploaded_fileADP = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
+    if uploaded_fileADP is not None:
+        ADP.run(uploaded_fileADP)
 
 #Opción para el algoritmo árbol de decisión (clasificación)
 elif opcion == "Algoritmo Árbol de Decisión (Clasificación)":
-    uploaded_file = None
     st.header ("Árbol de Decisión (Clasificación)")
-    uploaded_file = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
-    if uploaded_file is not None:
-        ADC.run(uploaded_file)
+    uploaded_fileADC = st.file_uploader("Selecciona o arrastra tu archivo con terminación '.csv' que tenga valores numéricos.")
+    if uploaded_fileADC is not None:
+        ADC.run(uploaded_fileADC)
